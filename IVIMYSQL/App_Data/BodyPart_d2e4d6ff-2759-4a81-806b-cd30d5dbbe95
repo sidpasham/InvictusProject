@@ -1,0 +1,22 @@
+
+I am a Software Engineer working for GWS's internal systems, such as Benchmarking report system for RF test
+drive data.
+
+I will work closely with the RF Engineering team responsible for implementing the network carrier performance and
+developing and testing these applications on Microsoft .NET Applications such as ASP.NET, Winfroms, Console Applications and WCF.
+
+Recently we were planning to move our winforms to WPF Applications, but its still under process. I have good knowledge on WPF andalso I have done good research about WPF Applications.
+
+We get RF Driven Data from GWS Drivers and they upload all the data in SQZ file format using our SOftware named as GTP which is a windows form application. This win form app uses WCF service with HTTP protocols to deliver data and Messages from Client service to our internal server. Also we use Data contract Serlization and XML Serlization to tranfer data from client laptop to or internal server. We use one-way Message pattern in WCF. We hosted our WCF application in IIS and we consume it in our Win forms application.
+
+Once the data is upload into our ftp server, we have console applications to import all the data from FTP server into SQL database. We copy and unzip the files from ftp server into our local server and then we import all the files into SQL database using Third party application called automation agent. We have a console application to monitor the status of verifying the log from generated to NQweb application. This console application is good at taking all txt log files to verify and update the sql db.
+
+Once the data is imported in our SQL Servers, we have win forms and console application to extract the data from the SQL db and write it into CSV files. winform applications if for manualy internal use and our console application is good at running on servers automatically when ever the data comes in. Then we import our CSVs into SQL db using SSIS packages. there is also more applications which processes all calculations and import into db.
+
+we generate Excel like tables, charts,word and pdf reports using these console and win forms applications.
+
+we provide all these reports to our clients via asp.net and asp.net mvc application.
+
+
+
+sqlite, c++, rv tcp.net, zmq, 

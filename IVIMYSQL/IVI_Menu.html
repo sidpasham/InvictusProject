@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <!-- CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/LoginRegister.css" rel="stylesheet" />
+    <link href="Content/form-elements.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--****************************************************************************************************************************************-->
+    <!--Menu-->
+    <div class="container" id="menu">
+
+        <!--Logo div-->
+        <div class="col-lg-4" style="margin-left:-5em; padding-top:10px;">
+            <a href="http://www.invictusinstitute.org/"><img src="Images/Invictus Logo.png" /></a>
+        </div>
+
+        <!--Navigation Bar-->
+        <div class="col-lg-8" style="margin-left:-4em; padding-top:60px;">
+            <nav class="navbar navbar-inverse" style="background-color:wheat; border:none; width:890px;">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" style="color:black;"><span class="glyphicon glyphicon-user"></span><h id="divusername"></h></a></li>
+                        <li><a style="color:black; font-weight:bold; padding-left:250px;">Message Board</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a style="color:black;" data-toggle="modal" data-target="#opensettingsmodal"><span class="glyphicon glyphicon-asterisk"></span> Settings</a></li>
+                        <li><a id="btnlogout" style="color:black;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!--****************************************************************************************************************************************-->
+        <!-- Settings Modal -->
+        <div id="opensettingsmodal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" style="word-wrap: break-word; text-align:left; color:black; width:500px; height:700px;">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="background-image:url(Images/1.jpg);">
+                    <div style="text-align:center; padding:5px 15px 5px 15px; border-bottom: 1px solid lightgrey;">
+                        <button type="button" class="close" id="closemodal" data-dismiss="modal">&times;</button>
+                        <h1 class="modal-title">Change Password</h1>
+                    </div>
+                    <div class="form-bottom" style="padding-top:20px; background-image:url(Images/1.jpg);" id="settingsmodalbody">
+                        <form role="form" action="" method="post" class="changepassword-form">
+                            <div class="form-group">
+                                <input type="password" name="form-oldpassword" placeholder="Old Password" class="form-oldpassword form-control"
+                                       id="form-oldpassword" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="form-newpassword" placeholder="New Password" class="form-newpassword form-control"
+                                       id="form-newpassword" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="form-confirmnewpassword" placeholder="Confirm New Password" class="form-confirmnewpassword form-control"
+                                       id="form-confirmnewpassword" required="required">
+                            </div>
+                            <button type="button" class="btn" id="btnchangepassword" style="width:200px;">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Footer -->
+    <div id="footer">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="footer-border"></div>
+                        <a href="http://www.invictusinstitute.org/">@InvictusInstitute.org</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Javascript -->
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.backstretch.min.js"></script>
+    <script src="Scripts/Project Scripts/CommonFunctions.js"></script>
+
+    <!--****************************************************************************************************************************************-->
+
+</body>
+</html>

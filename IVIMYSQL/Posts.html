@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>InvictusInstitute-MessageBoard</title>
+
+    <!-- CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/LoginRegister.css" rel="stylesheet" />
+    <link href="Content/form-elements.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <!--Menu-->
+    <div id="postsmenu"></div>
+
+    <!--Main posts div-->
+    <div class="container" id="divposts">
+
+        <!--****************************************************************************************************************************************-->
+        <!--error label-->
+        <div id="divError" class="alert alert-danger collapse">
+            <a id="linkClose" class="close" href="#">&times;</a>
+            <div id="divErrorText"></div>
+        </div>
+
+        <!--Admin Notice label-->
+        <div id="adminnotice" class="alert alert-success collapse">
+            <a id="closenotice" class="close" href="#">&times;</a>
+            <div id="divAdminNotice" class="alert-success text-left"></div>
+        </div>
+
+        <!--****************************************************************************************************************************************-->
+        <!--createpost and search button-->
+        <div class="row">
+            <div class="col-sm-3 text-left">
+                <button type="button" class="btn" id="btncreatepost" style="width:250px;" data-toggle="modal" data-target="#createpostmodal">Create Post</button>
+            </div>
+            <div class="col-sm-9 text-left">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <select class="input-group" id="searchpostby" style="width:200px; height:38px;">
+                            <option value="allposts">&nbsp;&nbsp;Search Post By...</option>
+                            <option value="Title">&nbsp;&nbsp;Post Title</option>
+                            <option value="Author">&nbsp;&nbsp;Post Author</option>
+                            <option value="Category">&nbsp;&nbsp;Post Category</option>
+                            <option value="Description">&nbsp;&nbsp;Post Description</option>
+                        </select>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search..." id="txtsearchpost">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="btnsearchpost">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--****************************************************************************************************************************************-->
+        <!--Main table of posts-->
+        <div class="table-responsive" style="padding-top:10px;">
+            <table class="table table-bordered" id="tblposts">
+                <col width="80">
+                <col width="80">
+                <col width="80">
+                <col width="250">
+                <col width="200">
+                <col width="50">
+                <tbody id="tblbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-Footer--->
+    <div id="postsfooter"></div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Create Modal -->
+    <div id="createpostmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="height:1000px; width:1100px;">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-image:url(Images/1.jpg);">
+                <div style="text-align:center; padding:5px 15px 5px 15px; border-bottom: 1px solid lightgrey;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">Create New Post</h1>
+                </div>
+                <div class="form-bottom" style="padding-top:5px; background-image:url(Images/1.jpg);" id="createpostmodalbody">
+                    <form role="form" action="" method="post" class="createpost-form">
+                        <div class="form-group text-center">
+                            <select class="form-group" id="selectcategoriespost" style="width:400px; height:40px;">
+                                <option value="categories">Select Category</option>
+                            </select>
+                            <textarea name="form-posttitle" rows="200"
+                                      placeholder="Post Title" class="form-posttitle form-control" id="form-posttitle" style="height:70px;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="form-postdescription" rows="200"
+                                      placeholder="Post Description" class="form-control" id="form-postdescription" style="height:320px;"></textarea>
+                        </div>
+                        <div class="form-group text-center">
+                            <h4>Select a file to Upload:</></h4>
+                            <input type="file" class="form-control text-center" id="fileUpload" />
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn" id="btncreatepostmodal" style="width:200px;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Open Post Modal -->
+    <div id="openpostmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" style="word-wrap: break-word; text-align:left; color:black; width:1000px; height:1000px;">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-image:url(Images/1.jpg);">
+                <div style="text-align:left; padding:5px 15px 5px 15px; border-bottom: 1px solid lightgrey;">
+                    <button type="button" class="close" id="closemodal" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title" id="divopenposttitle"></h1>
+                </div>
+                <div class="form-openpost" action="" method="post" style="text-align:left; background-image:url(Images/1.jpg); padding:5px 10px 5px 15px;">
+                    <div style="text-align:left; border-bottom: 1px solid lightgrey;">
+                        <div><u><b>Description: </b></u><div id="divopenpostdescription"></div></div>
+                        <div id="divopenpostauthor" style="font-size:11px;"><span>Posted By: </span><span id="divopenpostedby"></span></div>
+                    </div>
+                    <div style="text-align:left; border-bottom: 1px solid lightgrey; padding-top:5px;">
+                        <u><b>Replies:</b></u>
+                        <div>
+                            <textarea name="form-postreply" rows="20" placeholder="Write a Reply" class="form-control" id="form-postreply" style="height:100px;"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn" id="btnreplypostmodal">Add Reply</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Javascript -->
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.backstretch.min.js"></script>
+    <script src="Scripts/Project Scripts/CommonFunctions.js"></script>
+    <script src="Scripts/Project Scripts/PostsAccount.js"></script>
+    <!--****************************************************************************************************************************************-->
+</body>
+</html>

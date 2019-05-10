@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>InvictusInstitute-Register</title>
+
+    <!-- CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/LoginRegister.css" rel="stylesheet" />
+    <link href="Content/form-elements.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--****************************************************************************************************************************************-->
+    <!-Menu--->
+    <div id="registermenu"></div>
+
+    <!-- Top content -->
+    <div class="top-content">
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <a href="http://www.invictusinstitute.org/"><img src="Images/Invictus Logo.png" /></a>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-box">
+                            <div id="divError" class=" alert alert-danger collapse">
+                                <a id="linkClose" class="close" href="#">&times;</a>
+                                <div id="divErrorText"></div>
+                            </div>
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Welcome to Invictus Institute!</h3>
+                                    <p>Fill in the form below to Sign Up:</p>
+                                </div>
+                                <div class="form-top-right">
+                                    <button type="button" class="btn" id="btnRegisterLogin">Sign In!</button>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form role="form" action="" class="registration-form">
+                                    <div class="form-group">
+                                        <input type="text" name="form-full-name" placeholder="Full Name" class="form-full-name form-control"
+                                               id="form-full-name" required="required">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="form-email" placeholder="Email" class="form-email form-control"
+                                               id="form-email" required="required">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="form-password" placeholder="Password" class="form-password form-control"
+                                               id="form-password" required="required">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="form-confirm-password" placeholder="Confirm Password" class="form-confirm-password form-control"
+                                               id="form-confirm-password" required="required">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-group" id="selectsecurityquestions" style="text-align:left; width:535px; height:40px; color:dimgray;">
+                                            <option value="allquestions">&nbsp;&nbsp;&nbsp;Please Select Security Question...</option>
+                                            <option value="What is your first car color?">&nbsp;&nbsp;&nbsp;What is your first car color?</option>
+                                            <option value="What is your birth city?">&nbsp;&nbsp;&nbsp;What is your birth city?</option>
+                                            <option value="What is your pet name?">&nbsp;&nbsp;&nbsp;What is your pet name?</option>
+                                            <option value="What is your favorite movie?">&nbsp;&nbsp;&nbsp;What is your favorite movie?</option>
+                                            <option value="What is your favorite sport?">&nbsp;&nbsp;&nbsp;What is your favorite sport?</option>
+                                            <option value="What was the make and model of your first car?">&nbsp;&nbsp;&nbsp;What was the make and model of your first car?</option>
+                                            <option value="What is your mother's maiden name?">&nbsp;&nbsp;&nbsp;What is your mother's maiden name?</option>
+                                        </select>
+                                        <input type="text" name="form-security-question" placeholder="Security Question Answer" class="form-security-question form-control"
+                                               id="form-security-question" required="required">
+                                    </div>
+                                    <button type="button" class="btn" id="btnregister">Sign me up!</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-Footer--->
+    <div id="registerfooter"></div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Javascript -->
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.backstretch.min.js"></script>
+    <script src="Scripts/Project Scripts/CommonFunctions.js"></script>
+    <script src="Scripts/Project Scripts/LoginRegister.js"></script>
+
+</body>
+</html>

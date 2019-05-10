@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ivimessageboardModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblcategories">
+          <Key>
+            <PropertyRef Name="CategoriesId" />
+          </Key>
+          <Property Name="CategoriesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblError">
+          <Key>
+            <PropertyRef Name="ErrorId" />
+          </Key>
+          <Property Name="ErrorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ErrorText" Type="varchar" MaxLength="50000" />
+          <Property Name="ErrorClassName" Type="varchar" MaxLength="5000" />
+          <Property Name="ErrorMethodName" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="tblpostreply">
+          <Key>
+            <PropertyRef Name="idpostreply" />
+          </Key>
+          <Property Name="idpostreply" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postreplydescription" Type="mediumtext" Nullable="false" />
+          <Property Name="postreplyauthor" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="idreplyparent" Type="int" Nullable="false" />
+          <Property Name="postreplydate" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblposts">
+          <Key>
+            <PropertyRef Name="idposts" />
+          </Key>
+          <Property Name="idposts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="posttitle" Type="mediumtext" Nullable="false" />
+          <Property Name="postdescription" Type="mediumtext" />
+          <Property Name="postauthor" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="postdate" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="postreplies" Type="int" />
+          <Property Name="postcategoryid" Type="int" />
+          <Property Name="postfileuploaded" Type="mediumtext" />
+        </EntityType>
+        <EntityType Name="tblpostuploadedfiles">
+          <Key>
+            <PropertyRef Name="tblpostuploadedfileid" />
+          </Key>
+          <Property Name="tblpostuploadedfileid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tblpostid" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="tblpostuploadedfile" Type="varbinary" MaxLength="60000" />
+        </EntityType>
+        <EntityType Name="tblUserSecurity">
+          <Key>
+            <PropertyRef Name="UserSecurityId" />
+          </Key>
+          <Property Name="UserSecurityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="UserSecurityQuestion" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="UserSecurityAnswer" Type="varchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ivimessageboardModelStoreContainer">
+          <EntitySet Name="tblcategories" EntityType="Self.tblcategories" Schema="IVIProjectDB" store:Type="Tables" />
+          <EntitySet Name="tblError" EntityType="Self.tblError" Schema="IVIProjectDB" store:Type="Tables" />
+          <EntitySet Name="tblpostreply" EntityType="Self.tblpostreply" Schema="IVIProjectDB" store:Type="Tables" />
+          <EntitySet Name="tblposts" EntityType="Self.tblposts" Schema="IVIProjectDB" store:Type="Tables" />
+          <EntitySet Name="tblpostuploadedfiles" EntityType="Self.tblpostuploadedfiles" Schema="IVIProjectDB" store:Type="Tables" />
+          <EntitySet Name="tblUserSecurity" EntityType="Self.tblUserSecurity" Schema="IVIProjectDB" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ivimessageboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ivimessageboardEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblUserSecurities" EntityType="ivimessageboardModel.tblUserSecurity" />
+          <EntitySet Name="tblErrors" EntityType="ivimessageboardModel.tblError" />
+          <EntitySet Name="tblpostreplies" EntityType="ivimessageboardModel.tblpostreply" />
+          <EntitySet Name="tblpostuploadedfiles" EntityType="ivimessageboardModel.tblpostuploadedfile" />
+          <EntitySet Name="tblcategories" EntityType="ivimessageboardModel.tblcategory" />
+          <EntitySet Name="tblposts" EntityType="ivimessageboardModel.tblpost" />
+        </EntityContainer>
+        <EntityType Name="tblUserSecurity">
+          <Key>
+            <PropertyRef Name="UserSecurityId" />
+          </Key>
+          <Property Name="UserSecurityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserEmail" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UserSecurityQuestion" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="UserSecurityAnswer" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblError">
+          <Key>
+            <PropertyRef Name="ErrorId" />
+          </Key>
+          <Property Name="ErrorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorText" Type="String" MaxLength="50000" FixedLength="false" Unicode="false" />
+          <Property Name="ErrorClassName" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="ErrorMethodName" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblpostreply">
+          <Key>
+            <PropertyRef Name="idpostreply" />
+          </Key>
+          <Property Name="idpostreply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postreplydescription" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="postreplyauthor" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="idreplyparent" Type="Int32" Nullable="false" />
+          <Property Name="postreplydate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblpostuploadedfile">
+          <Key>
+            <PropertyRef Name="tblpostuploadedfileid" />
+          </Key>
+          <Property Name="tblpostuploadedfileid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tblpostid" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="tblpostuploadedfile1" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblcategory">
+          <Key>
+            <PropertyRef Name="CategoriesId" />
+          </Key>
+          <Property Name="CategoriesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblpost">
+          <Key>
+            <PropertyRef Name="idposts" />
+          </Key>
+          <Property Name="idposts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="posttitle" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="postdescription" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="postauthor" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="postdate" Type="DateTime" Nullable="false" />
+          <Property Name="postreplies" Type="Int32" />
+          <Property Name="postcategoryid" Type="Int32" />
+          <Property Name="postfileuploaded" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ivimessageboardModelStoreContainer" CdmEntityContainer="ivimessageboardEntities">
+          <EntitySetMapping Name="tblUserSecurities">
+            <EntityTypeMapping TypeName="ivimessageboardModel.tblUserSecurity">
+              <MappingFragment StoreEntitySet="tblUserSecurity">
+                <ScalarProperty Name="UserSecurityAnswer" ColumnName="UserSecurityAnswer" />
+                <ScalarProperty Name="UserSecurityQuestion" ColumnName="UserSecurityQuestion" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserSecurityId" ColumnName="UserSecurityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblErrors">
+            <EntityTypeMapping TypeName="ivimessageboardModel.tblError">
+              <MappingFragment StoreEntitySet="tblError">
+                <ScalarProperty Name="ErrorMethodName" ColumnName="ErrorMethodName" />
+                <ScalarProperty Name="ErrorClassName" ColumnName="ErrorClassName" />
+                <ScalarProperty Name="ErrorText" ColumnName="ErrorText" />
+                <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpostreplies">
+            <EntityTypeMapping TypeName="ivimessageboardModel.tblpostreply">
+              <MappingFragment StoreEntitySet="tblpostreply">
+                <ScalarProperty Name="postreplydate" ColumnName="postreplydate" />
+                <ScalarProperty Name="idreplyparent" ColumnName="idreplyparent" />
+                <ScalarProperty Name="postreplyauthor" ColumnName="postreplyauthor" />
+                <ScalarProperty Name="postreplydescription" ColumnName="postreplydescription" />
+                <ScalarProperty Name="idpostreply" ColumnName="idpostreply" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblpostuploadedfiles">
+            <EntityTypeMapping TypeName="ivimessageboardModel.tblpostuploadedfile">
+              <MappingFragment StoreEntitySet="tblpostuploadedfiles">
+                <ScalarProperty Name="tblpostuploadedfile1" ColumnName="tblpostuploadedfile" />
+                <ScalarProperty Name="tblpostid" ColumnName="tblpostid" />
+                <ScalarProperty Name="tblpostuploadedfileid" ColumnName="tblpostuploadedfileid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcategories">
+            <EntityTypeMapping TypeName="ivimessageboardModel.tblcategory">
+              <MappingFragment StoreEntitySet="tblcategories">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoriesId" ColumnName="CategoriesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblposts">
+            <EntityTypeMapping TypeName="ivimessageboardModel.tblpost">
+              <MappingFragment StoreEntitySet="tblposts">
+                <ScalarProperty Name="postfileuploaded" ColumnName="postfileuploaded" />
+                <ScalarProperty Name="postcategoryid" ColumnName="postcategoryid" />
+                <ScalarProperty Name="postreplies" ColumnName="postreplies" />
+                <ScalarProperty Name="postdate" ColumnName="postdate" />
+                <ScalarProperty Name="postauthor" ColumnName="postauthor" />
+                <ScalarProperty Name="postdescription" ColumnName="postdescription" />
+                <ScalarProperty Name="posttitle" ColumnName="posttitle" />
+                <ScalarProperty Name="idposts" ColumnName="idposts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

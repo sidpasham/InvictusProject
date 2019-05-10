@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>InvictusInstitute-Message Board--Admin Page</title>
+
+    <!-- CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/LoginRegister.css" rel="stylesheet" />
+    <link href="Content/form-elements.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="adminmenu"></div>
+
+    <!--Main posts div-->
+    <div class="container" id="divadmin">
+
+        <!--****************************************************************************************************************************************-->
+        <!--error label-->
+        <div id="divError" class="alert alert-danger collapse">
+            <a id="linkClose" class="close" href="#">&times;</a>
+            <div id="divErrorText"></div>
+        </div>
+        <!--Admin notice label-->
+        <div id="adminnotice" class="alert alert-success collapse">
+            <a id="closenotice" class="close" href="#">&times;</a>
+            <div id="divAdminNotice" class="alert-success text-left"></div>
+        </div>
+
+        <!--****************************************************************************************************************************************-->
+        <!--Admin Controls-->
+        <div class="row" id="admindiv">
+            <div id="admincontrolsdiv" style="display:none;"><b>Admin Controls:</b></div>
+            <table class="table table-bordered" id="tbladmin">
+                <tbody id="tblbodyadmin">
+                    <tr style="font-weight:bold;">
+                        <td>
+                            <div class="col-lg-12 text-center">
+                                <button type="button" class="btn" id="btncreatecatergory" style="width:200px;" data-toggle="modal" data-target="#AddCategories">Add Category</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-lg-12 text-center">
+                                <button type="button" class="btn" id="btnviewnoticeboard" style="width:200px;" data-toggle="modal" data-target="#Adminviewnotice">View/Modify Notice</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-lg-12 text-center">
+                                <button type="button" class="btn" id="btnadmincreateuser" style="width:200px;" data-toggle="modal" data-target="#AdminAddUser">Add User</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-lg-12 text-center">
+                                <button type="button" class="btn" id="btndeletepost" style="width:200px;" data-toggle="modal" data-target="#AdminAddUser">Delete Post</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-Footer--->
+    <div id="adminfooter"></div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Add Category Modal -->
+    <div id="AddCategories" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" style="height:400px; width:500px;">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-image:url(Images/1.jpg);">
+                <div style="text-align:center; padding:5px 15px 5px 15px; border-bottom: 1px solid lightgrey;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">Create New Category</h1>
+                </div>
+                <div class="form-bottom" style="padding-top:5px; background-image:url(Images/1.jpg);" id="createcatmodalbody">
+                    <form role="form" action="" method="post" class="addcategory-form">
+                        <select class="form-group" id="selectcategoriesadd" style="text-align:left; width:200px; height:30px;">
+                            <option value="categories">List of Categories</option>
+                        </select>
+                        <div class="form-group">
+                            <input type="text" name="form-addcategory" placeholder="Post Category" class="form-addcategory form-control" id="form-addcategory">
+                        </div>
+                        <button type="button" class="btn" id="btnaddcategory" style="width:200px;">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Add View Notice Board by Admin Modal -->
+    <div id="Adminviewnotice" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" style="height:800px; width:800px;">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-image:url(Images/1.jpg);">
+                <div style="text-align:center; padding:5px 15px 5px 15px; border-bottom: 1px solid lightgrey;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">Modify/View Admin Notice</h1>
+                </div>
+                <div class="form-bottom" style="padding-top:5px; background-image:url(Images/1.jpg);" id="adminviewnoticebody">
+                    <form role="form" action="" method="post" class="adminviewnotice-form">
+                        <div class="form-group">
+                            <textarea name="form-adminnotice" rows="2000" class="form-adminnotice form-control" id="form-adminnotice" style="height:250px;"></textarea>
+                        </div>
+                        <button type="button" class="btn" id="btnupdateadminnotice" style="width:200px;">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Add User by Admin Modal -->
+    <div id="AdminAddUser" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" style="height:600px; width:600px;">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-image:url(Images/1.jpg);">
+                <div style="text-align:center; padding:5px 15px 5px 15px; border-bottom: 1px solid lightgrey;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">Create New User</h1>
+                </div>
+                <div class="form-bottom" style="padding-top:5px; background-image:url(Images/1.jpg);" id="createusermodalbody">
+                    <form role="form" action="" method="post" class="adduseradmin-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-adminfirstname">Full name</label>
+                            <input type="text" name="form-adminfirstname" placeholder="Full Name" class="form-adminfirstname form-control"
+                                   id="form-adminfirstname" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-adminemail">Email</label>
+                            <input type="text" name="form-adminemail" placeholder="Email" class="form-adminemail form-control"
+                                   id="form-adminemail" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-adminpassword">Password</label>
+                            <input type="password" name="form-adminpassword" placeholder="Password" class="form-adminpassword form-control"
+                                   id="form-adminpassword" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-adminconfirmpassword">Confirm Password</label>
+                            <input type="password" name="form-adminconfirmpassword" placeholder="Confirm Password" class="form-adminconfirmpassword form-control"
+                                   id="form-adminconfirmpassword" required="required">
+                        </div>
+                        <button type="button" class="btn" id="btnadminadduser" style="width:200px;">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--****************************************************************************************************************************************-->
+    <!-- Javascript -->
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery.backstretch.min.js"></script>
+    <script src="Scripts/Project Scripts/CommonFunctions.js"></script>
+    <script src="Scripts/Project Scripts/AdminAccount.js"></script>
+    <!--****************************************************************************************************************************************-->
+</body>
+</html>
